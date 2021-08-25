@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Cash Return Manager</title>
+    <meta charset="UTF-8" />
+    <link type="stylesheet" href="./src/styles.css" />
+  </head>
 
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-</head>
+  <body>
+    <div id="app">
+      <h1>Cash Return Manager</h1>
+      <p>
+        Enter the bill amount and the amount paid by the customer to know the
+        minimum number of notes you can return along with denominations.
+      </p>
+      <label for="bill-input">Enter bill amount</label>
+      <input id="bill-input" type="number" />
 
-<body>
-	<div id="app"></div>
+      <button id="next-button">Next</button>
 
-	<script src="src/index.js">
-	</script>
-</body>
+      <div id="paid-input-container">
+        <label for="paid-input">Enter the amount paid</label>
+        <input id="paid-input" type="number" />
+        <button id="calculate-button">Calculate</button>
+      </div>
 
+      <table>
+        <tr>
+          <th>No. of notes</th>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+          <td class="output-cell"></td>
+        </tr>
+        <tr>
+          <th>Denominations</th>
+          <td>2000</td>
+          <td>500</td>
+          <td>100</td>
+          <td>20</td>
+          <td>10</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
 </html>
