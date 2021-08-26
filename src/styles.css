@@ -54,7 +54,25 @@ table {
 
 td,
 th {
-  text-align: left;
+  text-align: center;
   padding: 1.3rem;
   border: 1px solid #333;
+}
+
+#error-message,
+#error-image {
+  display: none;
+  color: red;
+  margin: 0rem 0rem 1rem 0rem;
+}
+
+#error-image {
+  width: 50%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1rem 0rem 2rem 0rem;
+}
+
+p {
+  text-align: center;
 }

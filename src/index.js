@@ -4,6 +4,28 @@ const paidInputContainer = document.querySelector("#paid-input-container");
 const paidInputElement = document.querySelector("#paid-input");
 const calcBtn = document.querySelector("#calculate-button");
 const outputCells = document.querySelectorAll(".output-cell");
+const errorMessageElement = document.querySelector("#error-message");
+const errorImage = document.querySelector("#error-image");
+
+const displayNext = () => {
+  paidInputContainer.style.display = "flex";
+  nextBtn.style.display = "none";
+};
+
+const displayError = (err) => {
+  errorMessageElement.style.display = "block";
+  errorMessageElement.textContent = err;
+};
+
+const displayErrImage = (src) => {
+  errorImage.src = src;
+  errorImage.style.display = "block";
+};
+
+const hideError = () => {
+  errorMessageElement.style.display = "none";
+  errorImage.style.display = "none";
+};
 
 // Check valid bill amount and display next on next-button
 nextBtn.addEventListener("click", () => {
@@ -15,11 +37,11 @@ nextBtn.addEventListener("click", () => {
       throw err;
     }
 
-    // Bill amount is fine, display the next part
-    paidInputContainer.style.display = "flex";
+    hideError();
+    displayNext();
   } catch (err) {
-    console.log(err.message);
-    // TODO : Display the error
+    displayError(err.message);
+    displayErrImage("/src/images/disappointed.jpg");
   }
 });
 
@@ -32,10 +54,11 @@ calcBtn.addEventListener("click", () => {
       throw err;
     }
 
+    hideError();
     calculateAndDisplayChange(returnAmount);
   } catch (err) {
-    console.log(err.message);
-    // TODO : Display the error
+    displayError(err.message);
+    displayErrImage("/src/images/washingPlates.jpg");
   }
 });
 
@@ -50,5 +73,10 @@ function calculateAndDisplayChange(returnAmount) {
     amount %= denominations[i];
 
     outputCells[i].innerText = curDenoCount;
+
+    if (curDenoCount > 0) {
+      outputCells[i].style.color = "#007f5f";
+      outputCells[i].style.fontWeight = "bold";
+    }
   }
 }
