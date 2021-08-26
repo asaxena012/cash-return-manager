@@ -67,8 +67,9 @@ th {
 }
 
 #error-image {
-  width: 50%;
+  max-width: 40%;
   height: auto;
+  max-height: 40%;
   border-radius: 1rem;
   margin: 1rem 0rem 2rem 0rem;
 }
