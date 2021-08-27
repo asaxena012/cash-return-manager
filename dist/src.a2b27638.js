@@ -176,10 +176,11 @@ nextBtn.addEventListener("click", function () {
 });
 calcBtn.addEventListener("click", function () {
   var paidAmount = paidInputElement.value;
-  var returnAmount = paidAmount - billAmountElement.value;
+  var billAmount = billAmountElement.value;
+  var returnAmount = paidAmount - billAmount;
 
   try {
-    if (returnAmount < 0) {
+    if (returnAmount < 0 || paidAmount < 0 || billAmount < 0) {
       var err = {
         message: "Do you want to wash plates?"
       };

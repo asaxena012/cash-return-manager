@@ -50,9 +50,10 @@ nextBtn.addEventListener("click", () => {
 
 calcBtn.addEventListener("click", () => {
   const paidAmount = paidInputElement.value;
-  const returnAmount = paidAmount - billAmountElement.value;
+  const billAmount = billAmountElement.value;
+  const returnAmount = paidAmount - billAmount;
   try {
-    if (returnAmount < 0) {
+    if (returnAmount < 0 || paidAmount < 0 || billAmount < 0) {
       const err = { message: "Do you want to wash plates?" };
       throw err;
     }
