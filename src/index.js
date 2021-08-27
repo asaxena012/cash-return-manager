@@ -1,3 +1,6 @@
+const errImage1 = require("./images/disappointed.jpg");
+const errImage2 = require("./images/washingPlates.jpg");
+
 const billAmountElement = document.querySelector("#bill-input");
 const nextBtn = document.querySelector("#next-button");
 const paidInputContainer = document.querySelector("#paid-input-container");
@@ -41,7 +44,7 @@ nextBtn.addEventListener("click", () => {
     displayNext();
   } catch (err) {
     displayError(err.message);
-    displayErrImage("/src/images/disappointed.jpg");
+    displayErrImage(errImage1);
   }
 });
 
@@ -58,7 +61,7 @@ calcBtn.addEventListener("click", () => {
     calculateAndDisplayChange(returnAmount);
   } catch (err) {
     displayError(err.message);
-    displayErrImage("/src/images/washingPlates.jpg");
+    displayErrImage(errImage2);
   }
 });
 
